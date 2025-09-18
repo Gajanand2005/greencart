@@ -1,0 +1,33 @@
+import cookieParser from 'cookie-parser';
+import express from 'express';
+import cors from 'cors';
+import connectDB from './config/db.js';
+const app = express();
+import 'dotenv/config';
+import userRouter from './routes/userRoutes.js';
+import sellerRouter from './routes/sellerRoutes.js';
+import connectCloudinary from './config/cloudinary.js';
+import productRouter from './routes/productRoutes.js';
+
+const port = process.env.PORT || 4000;
+await connectDB()
+await connectCloudinary()
+
+// Allow multiple origin
+const allowedOrigins =['http://localhost:5173']
+
+//middleware config
+app.use(express.json());
+app.use(cookieParser());
+app.use(cors({origin: allowedOrigins, Credential: true}));
+
+app.get('/',function(req,res){
+    res.send('Good ');
+});
+app.use('/api/user',userRouter)
+app.use('/api/seller',sellerRouter)
+app.use('/api/product',productRouter)
+
+app.listen(port,()=>{
+    console.log(`server is running on http://localhost:${port}`)
+})
