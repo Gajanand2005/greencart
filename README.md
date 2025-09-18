@@ -5,19 +5,16 @@ It provides a smooth shopping experience for customers and a powerful seller das
 
 🎥 Demo & Screenshots
 
-Replace the placeholder images with actual project screenshots or GIFs.
+(Replace the placeholders below with actual screenshots or GIFs)
 
 🏠 Customer Homepage
 
-(screenshot here)
 
 📦 Seller Dashboard
 
-(screenshot here)
 
 💳 Checkout & Payment
 
-(screenshot here)
 
 🚀 Tech Stack
 Frontend
@@ -74,7 +71,7 @@ cd server
 npm install
 
 
-Create a .env file inside server/:
+Create a .env file inside server/ with required environment variables:
 
 PORT=4000
 MONGODB_URI=your_mongodb_connection_string
@@ -93,7 +90,7 @@ cd server
 npm run server
 
 
-👉 Available at http://localhost:4000
+👉 Available at: http://localhost:4000
 
 Start the frontend:
 
@@ -101,7 +98,7 @@ cd client
 npm run dev
 
 
-👉 Available at http://localhost:5173
+👉 Available at: http://localhost:5173
 
 Production Mode
 cd client
@@ -146,7 +143,7 @@ greencart/
 
 📦 Track orders
 
-💳 Pay securely with Stripe
+💳 Secure payments with Stripe
 
 🛒 Seller
 
@@ -160,7 +157,7 @@ greencart/
 
 🌍 General
 
-📱 Responsive (mobile & desktop)
+📱 Responsive design (mobile & desktop)
 
 🌙 Dark mode support
 
@@ -233,7 +230,7 @@ Commit your changes:
 git commit -m "Add AmazingFeature"
 
 
-Push branch:
+Push the branch:
 
 git push origin feature/AmazingFeature
 
