@@ -8,13 +8,13 @@ const ProductCard = ({ product }) => {
     const navigate = useNavigate();
 
     return product && (
-        <div onClick={()=> {navigate(`/products/${product.category.toLowerCase()}/${product._id}`); scrollTo(0,0)}} className="border border-gray-500/20 rounded-md md:px-4 px-3 py-2 bg-white min-w-50 max-w-50 w-full ">
+        <div onClick={()=> {navigate(`/products/${product.category.toLowerCase()}/${product._id}`); scrollTo(0,0)}} className="border border-gray-500/20 rounded-md md:px-4 px-3 py-2 bg-white dark:bg-gray-800 min-w-50 max-w-50 w-full ">
             <div className="group cursor-pointer flex items-center justify-center px-2">
                 <img className="group-hover:scale-105 transition max-w-26 md:max-w-36" src={product.image && product.image[0] ? product.image[0] : assets.logo} alt={product.name} />
             </div>
-            <div className="text-gray-500/60 text-sm">
+            <div className="text-gray-500/60 dark:text-gray-400 text-sm">
                 <p>{product.category}</p>
-                <p className="text-gray-700 font-medium text-lg truncate w-full">{product.name}</p>
+                <p className="text-gray-700 dark:text-gray-100 font-medium text-lg truncate w-full">{product.name}</p>
                 <div className="flex items-center gap-0.5">
                     {Array(5).fill('').map((_, i) => (
                         <img key={i} src={i < 4 ? assets.star_icon : assets.star_dull_icon} alt='' className='md:w-3.5 w-3' />

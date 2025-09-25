@@ -2,6 +2,7 @@ import { createContext, useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { dummyProducts } from "../assets/assets";
 import  toast  from "react-hot-toast";
+import useTheme from "../hooks/useTheme";
 
 export const AppContext = createContext();
 
@@ -9,6 +10,7 @@ export const AppContextProvider = ({ children }) => {
 
     const currency = import.meta.env.VITE_CURRENCY;
     const navigate = useNavigate();
+    const { theme, toggleTheme } = useTheme();
     const [user, setUser] = useState(null);
     const [isSeller, setIsSeller] = useState(false);
     const [showUserLogin, setShowUserLogin] = useState(false);
@@ -81,7 +83,7 @@ export const AppContextProvider = ({ children }) => {
         return Math.floor(totalAmount * 100)/100;
     }
 
-    const value = { navigate, user, setUser, setIsSeller, isSeller, showUserLogin, setShowUserLogin, products ,currency, addToCart, updateCartItem, removeFromCart, cartItems , searchQuery, setSearchQuery, getCartAmount, getCartCount};
+    const value = { navigate, user, setUser, setIsSeller, isSeller, showUserLogin, setShowUserLogin, products ,currency, addToCart, updateCartItem, removeFromCart, cartItems , searchQuery, setSearchQuery, getCartAmount, getCartCount, theme, toggleTheme };
 
     return (
         <AppContext.Provider value={value}>

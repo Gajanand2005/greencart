@@ -9,7 +9,7 @@ import Footer from '../components/Footer'
 
 const Home = ({ isSellerPath }) => {
   return (
-    <div className='mt-10'>
+    <div className='mt-10 dark:bg-gray-900'>
       <MainBanner />
       <Categories />
       <BestSeller />

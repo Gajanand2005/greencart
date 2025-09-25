@@ -10,8 +10,7 @@
 
 body {
   font-family: 'Outfit', sans-serif;
-  background-color: white;
-  color: black;
+  @apply bg-white text-black dark:bg-gray-900 dark:text-gray-100;
   margin: 0;
   padding: 0;
   line-height: 1.6;
@@ -38,20 +37,27 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Theme toggle specific styles */
 .theme-toggle {
-  background: none;
-  border: none;
+  background-color: #f3f4f6;
+  border: 1px solid #d1d5db;
   cursor: pointer;
   padding: 8px;
   border-radius: 50%;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .theme-toggle:hover {
   background-color: #e5e7eb;
+  border-color: #9ca3af;
+}
+
+.dark .theme-toggle {
+  background-color: #374151;
+  border-color: #4b5563;
 }
 
 .dark .theme-toggle:hover {
-  background-color: white;
+  background-color: #4b5563;
+  border-color: #6b7280;
 }
 
 .theme-toggle svg {

@@ -6,7 +6,7 @@ import '../index.css';
 
 const Navbar = () => {
   const [open, setOpen] = React.useState(false);
-  const { user, setUser, setShowUserLogin, navigate, setSearchQuery, searchQuery, getCartCount } = useAppContext();
+  const { user, setUser, setShowUserLogin, navigate, setSearchQuery, searchQuery, getCartCount, theme, toggleTheme } = useAppContext();
 
   const logout = async () => {
     setUser(null);
@@ -21,18 +21,18 @@ const Navbar = () => {
 
   return (
     <>
-    <div className='bg-white'>
-    <div className="flex items-center justify-between px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 py-3 md:py-4 bg-black relative transition-all">
+    <div className='bg-white dark:bg-gray-900'>
+    <div className="flex items-center justify-between px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 py-3 md:py-4 bg-white dark:bg-gray-900 relative transition-all">
       {/* Logo */}
-      <NavLink to="/" onClick={() => setOpen(false)}>
+      <NavLink to="/" onClick={() => setOpen(true)}>
         <img src={assets.logo} alt="Logo" className='brightness-200' />
       </NavLink>
 
       {/* Desktop Menu */}
-      <div className="hidden sm:flex items-center gap-4 md:gap-6 lg:gap-8">
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/products">All Products</NavLink>
-        <NavLink to="/contact">Contact</NavLink>
+      <div className="hidden sm:flex items-center gap-4 md:gap-6 lg:gap-8 ">
+        <NavLink to="/" className="font-bold dark:text-white">Home</NavLink>
+        <NavLink to="/products" className="font-bold dark:text-white">All Products</NavLink>
+        <NavLink to="/contact" className="font-bold dark:text-white">Contact</NavLink>
 
         {/* Search Bar */}
         <div className="hidden md:flex items-center text-sm gap-2 border border-gray-300 px-3 rounded-full">
@@ -52,6 +52,19 @@ const Navbar = () => {
             {getCartCount()}
           </button>
         </div>
+
+        {/* Theme Toggle */}
+        <button onClick={toggleTheme} className="theme-toggle" aria-label="Toggle theme">
+          {theme === 'light' ? (
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+            </svg>
+          ) : (
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+            </svg>
+          )}
+        </button>
 
         {/* Login / Profile */}
         {!user ? (
@@ -102,14 +115,14 @@ const Navbar = () => {
           <NavLink
             to="/"
             onClick={() => setOpen(false)}
-            className="w-full py-2 dark:text-white hover:text-primary dark:hover:text-primary transition-colors"
+            className="w-full py-2 dark:text-white hover:text-primary dark:hover:text-primary transition-colors font-bold"
           >
             Home
           </NavLink>
           <NavLink
             to="/products"
             onClick={() => setOpen(false)}
-            className="w-full py-2 dark:text-white hover:text-primary dark:hover:text-primary transition-colors"
+            className="w-full py-2 dark:text-white hover:text-primary dark:hover:text-primary transition-colors font-bold"
           >
             All products
           </NavLink>
@@ -123,10 +136,30 @@ const Navbar = () => {
           <NavLink
             to="/contact"
             onClick={() => setOpen(false)}
-            className="w-full py-2 dark:text-white hover:text-primary dark:hover:text-primary transition-colors"
+            className="w-full py-2 dark:text-white hover:text-primary dark:hover:text-primary transition-colors font-bold"
           >
             Contact
           </NavLink>
+
+          {/* Theme Toggle Mobile */}
+          <button
+            onClick={() => {
+              toggleTheme();
+              setOpen(false);
+            }}
+            className="w-full py-2 text-left dark:text-white hover:text-primary dark:hover:text-primary transition-colors font-bold flex items-center gap-2"
+          >
+            {theme === 'light' ? (
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+              </svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+              </svg>
+            )}
+            {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
+          </button>
 
           {!user ? (
             <button
