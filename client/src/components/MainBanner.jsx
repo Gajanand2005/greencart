@@ -8,7 +8,7 @@ const MainBanner = () => {
       <img src={assets.main_banner_bg} alt="banner"  className='w-full hidden md:block'/>
       <img src={assets.main_banner_bg_sm} alt="banner" className='w-full md:hidden' />
       <div className="absolute inset-0 flex flex-col items-center md:items-start justify-end md:justify-center pb-16 md:pb-0 px-4 md:pl-12 lg:pl-16 xl:pl-24">
-        <h1 className="text-zinc-600 dark:text-zinc-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl text-center md:text-left max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl leading-tight font-bold mb-4 md:mb-6">
+        <h1 className="text-black dark:text-zinc-450 text-xl sm:text-2xl md:text-3xl lg:text-4xl text-center md:text-left max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl leading-tight font-bold mb-4 md:mb-6">
           Freshness You can Trust, Savings you will love!!
         </h1>
 

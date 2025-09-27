@@ -64,12 +64,12 @@ const AddAddress = () => {
         </div>
 
         {/* ✅ Form Section */}
-        <div className="flex-1 max-w-lg text-zinc-600">
+        <div className="flex-1 max-w-lg text-white">
           <form
             onSubmit={onsubmitHandler}
-            className="space-y-3 mt-6 text-sm text-zinc-600"
+            className="space-y-3 mt-6 text-sm text-white"
           >
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4 text-white">
               <InputField
                 handleChange={handleChange}
                 address={address}
