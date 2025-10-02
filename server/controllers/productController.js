@@ -18,11 +18,11 @@ export const addProduct = async (req, res)=>{
             })
         )
 
-        await Product.create({...productData,image: imagesUrl})
-        res.JSON({success:true, message: "Product Added"})
+        await Product.create({...productData, image: imagesUrl, category: [productData.category]})
+        res.json({success:true, message: "Product Added"})
     } catch (error) {
          console.log(error.message)
-         res.JSON({success: false, message: error.message})
+         res.json({success: false, message: error.message})
     }
 }
 
@@ -30,11 +30,11 @@ export const addProduct = async (req, res)=>{
 //get product:/api/product/list
 export const productList = async(req,res)=>{
     try {
-        const product = await product.find({})
-        res.JSON({success: true, products})
+        const products = await Product.find({})
+        res.json({success: true, products: products})
     } catch (error) {
           console.log(error.message)
-         res.JSON({success: false, message: error.message})
+         res.json({success: false, message: error.message})
     }
 }
 
@@ -43,11 +43,11 @@ export const productList = async(req,res)=>{
 export const productById = async(req,res)=>{
     try {
         const {id} = req.body
-        const product = await Product.findById({})
-        res.JSON({success: true , product})
+        const product = await Product.findById(id)
+        res.json({success: true , product})
     } catch (error) {
         console.log(error.message)
-         res.JSON({success: false, message: error.message}) 
+         res.json({success: false, message: error.message}) 
     }
 
 }
@@ -58,11 +58,11 @@ export const changeStock = async(req,res)=>{
         const {id, inStock} = req.body
 
         await Product.findByIdAndUpdate(id,{inStock})
-          res.JSON({success: true , message:"Stock Updated"})
+          res.json({success: true , message:"Stock Updated"})
 
     } catch (error) {
         console.log(error.message)
-         res.JSON({success: false, message: error.message}) 
+         res.json({success: false, message: error.message}) 
     }
 
 }

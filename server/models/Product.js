@@ -6,7 +6,7 @@ const productSchema = new mongoose.Schema({
     description: {type: Array, required: true, unique: true},
     price: {type: Number, required: true},
     offerPrice: {type: Number, required: true},
-    Image: {type: Array, required: true},
+    image: {type: Array, required: true},
     category: {type: Array, required: true},
     inStock: {type: Boolean, default: true},
 },{timestamps: true})

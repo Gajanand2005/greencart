@@ -16,7 +16,7 @@ const Categories = () => {
       "#E0F6FE": "bg-blue-50 dark:bg-blue-900",
       "#F1E3F9": "bg-purple-50 dark:bg-purple-900",
     };
-    return colorMap[bgColor] || "bg-gray-50 dark:bg-gray-800";
+    return colorMap[bgColor] || "bg-white ";
   };
 
   return (

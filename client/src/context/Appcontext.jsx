@@ -2,15 +2,16 @@ import { createContext, useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { dummyProducts } from "../assets/assets";
 import  toast  from "react-hot-toast";
-import useTheme from "../hooks/useTheme";
-
+import axios from 'axios';
 export const AppContext = createContext();
+
+axios.defaults.withCredentials = true;
+axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL;
 
 export const AppContextProvider = ({ children }) => {
 
     const currency = import.meta.env.VITE_CURRENCY;
     const navigate = useNavigate();
-    const { theme, toggleTheme } = useTheme();
     const [user, setUser] = useState(null);
     const [isSeller, setIsSeller] = useState(false);
     const [showUserLogin, setShowUserLogin] = useState(false);
@@ -18,10 +19,34 @@ export const AppContextProvider = ({ children }) => {
     const [cartItems, setCartItems] = useState({});
     const [searchQuery, setSearchQuery] = useState("");
 
+        //Fetch seller status
+
+        const fetchSeller = async()=>{
+            try {
+                const {data} = await axios.get('/api/seller/is-auth')
+                if(data.success){
+                    setIsSeller(true)
+                }else{
+                    setIsSeller(false)
+                }
+            } catch (error) {
+                setIsSeller(false)
+            }
+        }
+
 
     //Fetch all products
     const fetchProducts = async()=>{
-        setProducts(dummyProducts)
+        try {
+            const {data} = await axios.get('/api/product/list')
+            if(data.success){
+                setProducts(data.products)
+            }else{
+                toast.error(data.message)
+            }
+        } catch (error) {
+            toast.error(error.message)
+        }
     }
 
     //add product to card
@@ -61,6 +86,8 @@ export const AppContextProvider = ({ children }) => {
     
     useEffect(()=>{
         fetchProducts();
+        fetchSeller();
+        
     })
 
     //get card item
@@ -83,7 +110,7 @@ export const AppContextProvider = ({ children }) => {
         return Math.floor(totalAmount * 100)/100;
     }
 
-    const value = { navigate, user, setUser, setIsSeller, isSeller, showUserLogin, setShowUserLogin, products ,currency, addToCart, updateCartItem, removeFromCart, cartItems , searchQuery, setSearchQuery, getCartAmount, getCartCount, theme, toggleTheme };
+    const value = { navigate, user, setUser, setIsSeller, isSeller, showUserLogin, setShowUserLogin, products ,currency, addToCart, updateCartItem, removeFromCart, cartItems , searchQuery, setSearchQuery, getCartAmount, getCartCount, axios, fetchProducts };
 
     return (
         <AppContext.Provider value={value}>
