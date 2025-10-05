@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 // Reusable Input Component
 const InputField = ({ type, placeholder, name, handleChange, address }) => (
   <input
-    className="w-full px-2 py-2.5 border border-gray-500 text-zinc-5  00 rounded-3xl outline-none  focus:border-green-700 transition"
+    className="w-full px-2 py-2.5 border border-gray-500 text-zinc-500  rounded-3xl outline-none  focus:border-green-700 transition"
     type={type}
     placeholder={placeholder}
     onChange={handleChange}
@@ -64,12 +64,12 @@ const AddAddress = () => {
         </div>
 
         {/* ✅ Form Section */}
-        <div className="flex-1 max-w-lg text-white">
+        <div className="flex-1 max-w-lg text-black">
           <form
             onSubmit={onsubmitHandler}
-            className="space-y-3 mt-6 text-sm text-white"
+            className="space-y-3 mt-6 text-sm text-black"
           >
-            <div className="grid grid-cols-2 gap-4 text-white">
+            <div className="grid grid-cols-2 gap-4 text-black">
               <InputField
                 handleChange={handleChange}
                 address={address}
@@ -145,7 +145,7 @@ const AddAddress = () => {
 
             <button
               type="submit"
-              className="w-full mt-6 bg-green-700 text-white px-4 py-2.5 rounded-3xl hover:bg-green-800 transition"
+              className="w-full mt-6 bg-green-700 text-black px-4 py-2.5 rounded-3xl hover:bg-green-800 transition"
             >
               Save Address
             </button>

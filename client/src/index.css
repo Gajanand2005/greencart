@@ -10,10 +10,10 @@
 
 body {
   font-family: 'Outfit', sans-serif;
- background-color: black;
+  color: black;
   margin: 0;
   padding: 0;
-  line-height: 1.6;
+
 }
 
 /* Container responsive behavior */

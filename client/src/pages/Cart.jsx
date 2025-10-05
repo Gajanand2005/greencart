@@ -35,27 +35,27 @@ const Cart = () => {
     },[products,cartItems])
   return products.length > 0 && cartItems ? (
     <>
-        <div className="flex flex-col md:flex-row mt-16 text-white">
-            <div className='flex-1 max-w-4xl text-white'>
+        <div className="flex flex-col md:flex-row mt-16 text-black">
+            <div className='flex-1 max-w-4xl text-black'>
                 <h1 className="text-3xl font-medium mb-6">
                     Shopping Cart <span className="text-sm text-indigo-500">{getCartCount()} Items</span>
                 </h1>
 
-                <div className="grid grid-cols-[2fr_1fr_1fr] text-white text-base font-medium pb-3">
+                <div className="grid grid-cols-[2fr_1fr_1fr] text-black text-base font-medium pb-3">
                     <p className="text-left">Product Details</p>
                     <p className="text-center">Subtotal</p>
                     <p className="text-center">Action</p>
                 </div>
 
                 {cartArray.map((product, index) => (
-                    <div key={index} className="grid grid-cols-[2fr_1fr_1fr] text-white items-center text-sm md:text-base font-medium pt-3">
-                        <div className="flex items-center md:gap-6 gap-3 text-white">
+                    <div key={index} className="grid grid-cols-[2fr_1fr_1fr] text-black items-center text-sm md:text-base font-medium pt-3">
+                        <div className="flex items-center md:gap-6 gap-3 text-black">
                             <div onClick={()=>{navigate(`/products/${product.category.toLowerCase()}/${product._id}`); scrollTo(0,0)}} className="cursor-pointer w-24 h-24 flex items-center justify-center border border-gray-300 rounded overflow-hidden">
                                 <img className="max-w-full h-full object-cover" src={product.image[0]} alt={product.name} />
                             </div>
                             <div>
                                 <p className="hidden md:block font-semibold">{product.name}</p>
-                                <div className="font-normal text-white">
+                                <div className="font-normal text-black">
                                     <p>Weight: <span>{product.weight || "N/A"}</span></p>
                                     <div className='flex items-center'>
                                         <p>Qty:</p>
@@ -80,20 +80,20 @@ const Cart = () => {
                 <button onClick={() => {
                     navigate("/products"); scrollTo(0,0);
                 }} className="group cursor-pointer flex items-center mt-8 gap-2 text-indigo-500 font-medium">
-                    <img src={assets.arrow_right_icon_colored} alt="arrow" className='group-hover:-translate-x-1 transition text-white' />
+                    <img src={assets.arrow_right_icon_colored} alt="arrow" className='group-hover:-translate-x-1 transition text-black' />
                     Continue Shopping
                 </button>
 
             </div>
 
             <div className="max-w-[360px] w-full bg-gray-100/40 p-5 max-md:mt-16 border border-gray-300/70">
-                <h2 className="text-xl md:text-xl text-white font-medium">Order Summary</h2>
+                <h2 className="text-xl md:text-xl text-black font-medium">Order Summary</h2>
                 <hr className="border-gray-300 my-5" />
 
                 <div className="mb-6">
-                    <p className="text-sm text-white font-medium uppercase">Delivery Address</p>
-                    <div className="relative flex justify-between items-start mt-2 text-white">
-                        <p className='text-white' >{ selectedAddress ?  `${selectedAddress.street}, ${selectedAddress.city}, ${selectedAddress.country}` : "No address found"}</p>
+                    <p className="text-sm text-black font-medium uppercase">Delivery Address</p>
+                    <div className="relative flex justify-between items-start mt-2 text-black">
+                        <p className='text-black' >{ selectedAddress ?  `${selectedAddress.street}, ${selectedAddress.city}, ${selectedAddress.country}` : "No address found"}</p>
                         <button onClick={() => setShowAddress(!showAddress)} className="text-indigo-500 hover:underline cursor-pointer">
                             Change
                         </button>
@@ -111,9 +111,9 @@ const Cart = () => {
                         )}
                     </div>
 
-                    <p className="text-sm font-medium uppercase text-white mt-6">Payment Method</p>
+                    <p className="text-sm font-medium uppercase text-black mt-6">Payment Method</p>
 
-                    <select onChange={e => setPaymentOption(e.target.value)} className="w-full border border-gray-300 text-white px-3 py-2 mt-2 outline-none">
+                    <select onChange={e => setPaymentOption(e.target.value)} className="w-full border border-gray-300 text-black px-3 py-2 mt-2 outline-none">
                         <option value="COD">Cash On Delivery</option>
                         <option value="Online">Online Payment</option>
                     </select>
@@ -121,7 +121,7 @@ const Cart = () => {
 
                 <hr className="border-gray-300 " />
 
-                <div className=" mt-4 space-y-2 text-white">
+                <div className=" mt-4 space-y-2 text-black">
                     <p className="flex justify-between">
                         <span>Price</span><span>{currency}{getCartAmount()}</span>
                     </p>
@@ -136,7 +136,7 @@ const Cart = () => {
                     </p>
                 </div>
 
-                <button onClick={placeOrder} className="w-full py-3 mt-6 cursor-pointer bg-indigo-500 rounded-3xl text-white font-medium hover:bg-indigo-600 transition">
+                <button onClick={placeOrder} className="w-full py-3 mt-6 cursor-pointer bg-indigo-500 rounded-3xl text-black font-medium hover:bg-indigo-600 transition">
                     {PaymentOption ==="COD" ? "place order": "Proceed to checkout"}
                 </button>
             </div>

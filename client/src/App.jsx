@@ -28,8 +28,8 @@ const App = () => {
       {isSellerPath ? null : <Navbar />}
       {showUserLogin ? <Login /> : null}
       <Toaster />
-      <main className="main-content">
-  <div className={`${isSellerPath ? " " : 'px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24'} text-white bg-zinc-300`}>
+  <main className="main-content">
+  <div className={`${isSellerPath ? " " : 'px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24'} text-black`}>
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/products' element={<AllProduct />} />
@@ -45,7 +45,7 @@ const App = () => {
             </Route>
           </Routes>
         </div>
-        
+
       </main>
     </div>
   );
