@@ -13,7 +13,7 @@ It provides a smooth shopping experience for customers and a powerful seller das
 📦 Seller Dashboard
 
 
-💳 Checkout & Payment
+💳 Checkout & Paymenta
 
 
 🚀 Tech Stack
