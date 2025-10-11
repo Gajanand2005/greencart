@@ -1,0 +1,5 @@
+- [x] Edit client/src/pages/seller/ProductList.jsx: Add bg-black text-white to root div, change table bg to black, update text colors to white
+- [x] Edit client/src/pages/seller/SellerLayout.jsx: Update header and sidebar with black bg and white text
+- [x] Edit client/src/pages/seller/AddProduct.jsx: Change root div bg to black and text to white
+- [x] Edit client/src/pages/seller/Order.jsx: Add bg-black text-white to root div, update inner text colors
+- [ ] Test the changes by running the app

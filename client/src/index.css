@@ -6,14 +6,16 @@
 /* Base responsive styles */
 * {
   box-sizing: border-box;
+
 }
 
 body {
   font-family: 'Outfit', sans-serif;
- background-color: black;
+
+  color: white !important;
   margin: 0;
   padding: 0;
-  line-height: 1.6;
+ 
 }
 
 /* Container responsive behavior */
@@ -87,8 +89,3 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Prevent horizontal scrolling */
-html, body {
-  overflow-x: hidden;
-  width: 100%;
-}
